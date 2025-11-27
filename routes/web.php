@@ -1,6 +1,6 @@
 <?php
-
 use App\Http\Controllers\FeedController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,6 +10,13 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/feed', [FeedController::class, 'index'])->name('feed');
+
+    //post routes
+    Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
+    Route::post('/post/create', [PostController::class, 'store'])->name('post.store');
+
+    // Profile routes
+    Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile');
 
 });
 

@@ -52,7 +52,7 @@
                     <div class="flex items-center gap-4 text-sm">
 
                         <button class="flex items-center gap-1 text-green-400 hover:opacity-80">
-                            <span class="text-lg">💬</span> comment
+                            <span class="text-lg">//</span>comment
                         </button>
 
                         <button class="flex items-center gap-1 text-purple-400 hover:opacity-80">
