@@ -32,4 +32,9 @@ class PostController extends Controller
 
         return redirect()->route('feed');
     }
+
+    public function show(Post $post)
+    {
+        return view('main.profile.post', compact('post'));
+    }
 }

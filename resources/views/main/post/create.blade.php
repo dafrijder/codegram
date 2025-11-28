@@ -1,61 +1,41 @@
 <x-base-layout>
 
-<div class="flex">
+    <div class="min-h-screen bg-[#0d1117] text-gray-200 font-mono 
+                p-4 md:ml-64 pb-24 md:pb-0 flex justify-center">
 
-    {{-- Page Content --}}
-    <div class="ml-64 w-full min-h-screen bg-[#0d1117] text-gray-200 p-10 font-mono">
+        <div class="w-full max-w-lg bg-[#161b22] border border-[#30363d] 
+                    p-6 rounded-xl">
 
-        <div class="flex justify-center mt-10">
+            <h1 class="text-xl font-bold text-green-400 mb-6">new_post()</h1>
 
-            <div class="w-full max-w-xl bg-[#161b22] border border-[#30363d] rounded-xl p-6 shadow-xl">
+            <form action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
+                @csrf
 
-                <h1 class="text-3xl font-bold text-green-400 mb-6 text-center">new_post()</h1>
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">title</label>
+                    <input type="text" name="title" class="w-full bg-[#0d1117] border border-[#30363d] 
+                                  rounded-lg px-4 py-2 focus:outline-none">
+                </div>
 
-                <form action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
-                    @csrf
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">description</label>
+                    <textarea name="description" class="w-full bg-[#0d1117] border border-[#30363d] 
+                                     rounded-lg px-4 py-2 h-28 focus:outline-none"></textarea>
+                </div>
 
-                    <!-- Title -->
-                    <div>
-                        <label class="block mb-1 text-sm text-gray-400">title</label>
-                        <input type="text"
-                            name="title"
-                            class="w-full px-3 py-2 rounded-lg bg-[#0d1117] border border-[#30363d] text-gray-200 focus:outline-none focus:border-green-400"
-                            placeholder="my cool project...">
-                    </div>
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">photo</label>
+                    <input type="file" name="photo" class="w-full text-sm text-gray-400" accept="image/*">
+                </div>
 
-                    <!-- Description -->
-                    <div>
-                        <label class="block mb-1 text-sm text-gray-400">description</label>
-                        <textarea
-                            name="description"
-                            rows="4"
-                            class="w-full px-3 py-2 rounded-lg bg-[#0d1117] border border-[#30363d] text-gray-200 focus:outline-none focus:border-green-400"
-                            placeholder="what did you build?"></textarea>
-                    </div>
+                <button class="w-full bg-green-600 hover:bg-green-500 transition px-4 py-2 rounded-lg font-bold">
+                    upload_post()
+                </button>
 
-                    <!-- Photo -->
-                    <div>
-                        <label class="block mb-1 text-sm text-gray-400">photo</label>
-                        <input type="file"
-                            name="photo"
-                            class="w-full text-gray-200 file:bg-green-600 file:border-none file:px-4 file:py-2 file:rounded-lg file:text-white file:cursor-pointer file:hover:bg-green-500">
-                    </div>
-
-                    <!-- Submit -->
-                    <button
-                        type="submit"
-                        class="w-full py-2 bg-green-600 hover:bg-green-500 text-white font-bold rounded-lg transition">
-                        upload_post()
-                    </button>
-
-                </form>
-
-            </div>
+            </form>
 
         </div>
 
     </div>
-
-</div>
 
 </x-base-layout>

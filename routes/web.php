@@ -14,6 +14,7 @@ Route::middleware('auth')->group(function () {
     //post routes
     Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
     Route::post('/post/create', [PostController::class, 'store'])->name('post.store');
+    Route::get('/post/{id}', [PostController::class, 'show'])->name('post.show');
 
     // Profile routes
     Route::get('/profile/{id}', [ProfileController::class, 'show'])->name('profile');
